@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    nav
+        ul
+            li.current
+                a(ui-sref="index")
+                    i.fa.fa-home &nbsp;Home
+            li
+                a(ui-sref="graph")
+                    i.fa.fa-bar-chart &nbsp;Statistics
+            li
+                a(ui-sref="addPublication")
+                    i.fa.fa-plus &nbsp; Post
+    div.content
+        div(ui-view)

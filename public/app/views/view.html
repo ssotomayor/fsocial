@@ -1,0 +1,16 @@
+<div ng-repeat="publication in data.response" class="publication animated fadeInUp">
+    <span class="message">{{publication.content.message}}<span ng-if="publication.content.network" class="from-network"> - from <i
+            class="fa fa-{{publication.content.network}}-square"> {{publication.content.network}}</i></span></span>
+    <span class="from-network" ng-if="publication.geo.countries.length"> in <span
+            ng-repeat="country in publication.geo.countries" style="font-size:.6em">{{country.value}} - </span>
+    (<span class="from-network" ng-repeat="language in publication.geo.languages">{{language.value}} </span>)
+    </span>
+    <span class="from-network"> - Status: {{publication.status}}</span> - <a class="editlink"
+                                                                             href="/#!/edit/{{publication.id}}">Edit</a>
+    <ul class="tags">
+        <li ng-repeat="tag in publication.tags"><a href="#">{{tag}}</a></li>
+    </ul>
+    <div ng-if="publication.content.media">
+        <img ng-src="{{publication.content.media.url}}">
+    </div>
+</div>
